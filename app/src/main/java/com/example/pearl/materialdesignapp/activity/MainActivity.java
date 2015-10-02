@@ -14,10 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.pearl.materialdesignapp.R;
+import com.example.pearl.materialdesignapp.adapter.ChangeThemes;
 import com.example.pearl.materialdesignapp.adapter.NavigationDrawerAdapter;
 
 
-public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener{
+public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private RecyclerView recyclerView;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         setToolBar();
         //setTheme();
         setDrawer();
+        setTheme();
     }
 
     private void setToolBar(){
@@ -117,15 +119,14 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onDrawerItemSelected(View view, int position) {
 
-    }
 
     private void setTheme(){
-        toolbar.setBackgroundColor(Color.parseColor("#1e90ff"));
+        toolbar.setBackgroundColor(Color.parseColor(ChangeThemes.getsInstance().loadTheme()));
     }
     public void launchThemeActivity (){
+
         startActivity(new Intent(this,ThemesActivity.class));
+        finish();
     }
 }

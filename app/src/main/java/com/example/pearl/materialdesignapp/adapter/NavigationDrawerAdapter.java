@@ -2,6 +2,7 @@ package com.example.pearl.materialdesignapp.adapter;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
 
                     } else if (v == parent.getChildAt(3)){
                         MainActivity.activity.launchThemeActivity();
+
                     }
                 }
             });
@@ -60,6 +62,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
         } else if (viewType == __TYPE_HEADER__){
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header, parent, false);
             RelativeLayout r = (RelativeLayout) view.findViewById(R.id.header_relative_layout);
+            r.setBackgroundColor(Color.parseColor(ChangeThemes.getsInstance().loadTheme()));
             MyViewHolder vhHeader = new MyViewHolder(view,viewType);
             return vhHeader;
         }

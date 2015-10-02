@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
     <include
         android:id="@+id/theme_toolbar"
@@ -9,4 +12,38 @@
 
     </include>
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select Theme"
+        android:id="@+id/textView"
+        android:layout_below="@+id/theme_toolbar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/theme_listView"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <!--    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/main_layout"
+                >
+
+            </LinearLayout>
+        </ScrollView>     -->
+
+    </LinearLayout>
