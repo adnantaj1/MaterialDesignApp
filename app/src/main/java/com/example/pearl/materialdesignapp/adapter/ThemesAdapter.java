@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pearl.materialdesignapp.R;
+import com.example.pearl.materialdesignapp.activity.R;
 import com.example.pearl.materialdesignapp.activity.ThemesActivity;
 
 import java.util.ArrayList;

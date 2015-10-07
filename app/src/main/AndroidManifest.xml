@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pearl.materialdesignapp" >
+    package="com.example.pearl.materialdesignapp.activity" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/MyMaterialTheme" >
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,15 @@
             android:label="Themes">
             <mata-data
                 android:name = "android.support.PARENT_ACTIVITY"
-                android:value = ".activity.MainActivity" />
+                android:value = ".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="Profile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+
         </activity>
 
     </application>

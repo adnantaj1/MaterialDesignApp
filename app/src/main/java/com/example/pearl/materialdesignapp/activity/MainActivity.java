@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.pearl.materialdesignapp.R;
 import com.example.pearl.materialdesignapp.adapter.ChangeThemes;
 import com.example.pearl.materialdesignapp.adapter.NavigationDrawerAdapter;
 
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public  static MainActivity activity;
 
     private String home[] = {
-      "Home", "Email" , "Themes"
+      "Home", "Email" , "Themes", "Profile"
     };
 
 
@@ -127,6 +126,10 @@ public class MainActivity extends AppCompatActivity {
     public void launchThemeActivity (){
 
         startActivity(new Intent(this,ThemesActivity.class));
+        finish();
+    }
+    public void launchProfileAvtivity(){
+        startActivity(new Intent(this,ProfileActivity.class));
         finish();
     }
 }

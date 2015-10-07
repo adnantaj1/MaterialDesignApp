@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.pearl.materialdesignapp.R;
 import com.example.pearl.materialdesignapp.activity.MainActivity;
+import com.example.pearl.materialdesignapp.activity.R;
 import com.example.pearl.materialdesignapp.activity.ThemesActivity;
 import com.example.pearl.materialdesignapp.model.NavDrawerItem;
 
@@ -51,10 +51,10 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
                         MainActivity.activity.homeScreen();
                     } else if (v == parent.getChildAt(2)) {
                         MainActivity.activity.closeDrawer();
-
                     } else if (v == parent.getChildAt(3)){
                         MainActivity.activity.launchThemeActivity();
-
+                    } else if (v == parent.getChildAt(4)){
+                        MainActivity.activity.launchProfileAvtivity();
                     }
                 }
             });

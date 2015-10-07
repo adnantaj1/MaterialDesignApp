@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pearl.materialdesignapp.R;
+
 import com.example.pearl.materialdesignapp.adapter.ChangeThemes;
 import com.example.pearl.materialdesignapp.adapter.ThemesAdapter;
 
@@ -29,8 +29,8 @@ public class ThemesActivity extends AppCompatActivity {
     ThemesAdapter adapter;
     public static ThemesActivity activity;
 
-    private String themes[]={"Blue", "Red", "Pink", "Yellow", "Orange","DarkBrown"};
-    private String colors[]={"#3366FF", "#800000", "#FF0066", "#FFCC00", "#FF6600", "#663300"};
+    private String themes[]={"Blue", "Red", "Pink", "Yellow", "Orange","DarkBrown", "Mixed", "Voilet"};
+    private String colors[]={"#3366FF", "#800000", "#FF0066", "#FFCC00", "#FF6600", "#663300","#00CCCC", "#CC00CC"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +79,12 @@ public class ThemesActivity extends AppCompatActivity {
                         break;
                     case 5:
                         ChangeThemes.getsInstance().setSelectedTheme(ChangeThemes.SelectedTheme.THEME_DARKBROWB);
+                        break;
+                    case 6:
+                        ChangeThemes.getsInstance().setSelectedTheme(ChangeThemes.SelectedTheme.THEME_MIXED);
+                        break;
+                    case 7:
+                        ChangeThemes.getsInstance().setSelectedTheme(ChangeThemes.SelectedTheme.THEME_VIOLET);
                         break;
                     default:
                         ChangeThemes.getsInstance().setSelectedTheme(ChangeThemes.SelectedTheme.THEME_PNK);

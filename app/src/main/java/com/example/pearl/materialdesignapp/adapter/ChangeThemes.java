@@ -21,7 +21,9 @@ public class ChangeThemes {
         THEME_PNK,
         THEME_YELLOW,
         THEME_ORANGE,
-        THEME_DARKBROWB
+        THEME_DARKBROWB,
+        THEME_MIXED,
+        THEME_VIOLET
     }
 
     private SelectedTheme selectedTheme = SelectedTheme.THEME_PNK;
@@ -38,7 +40,12 @@ public class ChangeThemes {
             return "#FFCC00";
         }else if (selectedTheme == SelectedTheme.THEME_ORANGE){
             return "#FF6600";
-        } else return "#FF0066";
+        } else if (selectedTheme == SelectedTheme.THEME_MIXED){
+            return "#00CCCC";
+        } else if (selectedTheme == SelectedTheme.THEME_VIOLET){
+            return "#CC00CC";
+        }
+        else return "#FF0066";
     }
 
     public SelectedTheme getSelectedTheme(){
