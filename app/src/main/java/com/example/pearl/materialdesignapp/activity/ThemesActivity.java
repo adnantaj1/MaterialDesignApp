@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.pearl.materialdesignapp.adapter.ChangeThemes;
 import com.example.pearl.materialdesignapp.adapter.ThemesAdapter;
+import com.example.pearl.materialdesignapp.controller.FileHandler;
+import com.example.pearl.materialdesignapp.controller.Singleton;
 
 /**
  * Created by Pearl on 9/30/2015.
@@ -38,6 +40,9 @@ public class ThemesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_themes);
         activity = ThemesActivity.this;
         textView = (TextView) findViewById(R.id.textView);
+        Singleton.getInstance().setActivityName(this.getClass().getName());
+        FileHandler.getsInstance().writeCache(this);
+        FileHandler.getsInstance().readCache(this);
         setToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //selectTheme();
@@ -161,6 +166,7 @@ public class ThemesActivity extends AppCompatActivity {
         startActivity(new Intent(this,MainActivity.class));
         finish();
     }
+
 
     public void setTheme(){
         toolbar.setBackgroundColor(Color.parseColor(ChangeThemes.getsInstance().loadTheme()));

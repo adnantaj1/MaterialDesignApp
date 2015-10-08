@@ -54,7 +54,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
                     } else if (v == parent.getChildAt(3)){
                         MainActivity.activity.launchThemeActivity();
                     } else if (v == parent.getChildAt(4)){
-                        MainActivity.activity.launchProfileAvtivity();
+                        MainActivity.activity.launchProfileActivity();
                     }
                 }
             });

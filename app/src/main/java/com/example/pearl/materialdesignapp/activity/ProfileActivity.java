@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pearl.materialdesignapp.adapter.ChangeThemes;
+import com.example.pearl.materialdesignapp.controller.FileHandler;
+import com.example.pearl.materialdesignapp.controller.Singleton;
 import com.example.pearl.materialdesignapp.model.DBUsers;
 
 /**
@@ -42,12 +44,17 @@ public class ProfileActivity extends AppCompatActivity {
         btnReset = (Button) findViewById(R.id.button_reset);
         textName = (EditText) findViewById(R.id.editTextName);
         textPassword = (EditText) findViewById(R.id.editTextPassword);
+        btnEdit.setEnabled(false);
+        Singleton.getInstance().setActivityName(this.getClass().getName());
+        FileHandler.getsInstance().writeCache(this);
+        FileHandler.getsInstance().readCache(this);
         setToolbar();
         goBack();
         setTheme();
         check();
         saveUser();
         setData();
+        ifTextChange();
     }
 
     private void goBack(){
@@ -89,10 +96,18 @@ public class ProfileActivity extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBUsers db = new DBUsers(getApplication());
-                db.open();
-                //db.updateUsers()
-                db.close();
+              btnEdit.setEnabled(false);
+                if (ifExists()){
+                    DBUsers db = new DBUsers(getApplicationContext());
+                    db.open();
+                    if(db.updateUsers(1,textName.getText().toString(),textPassword.getText().toString())){
+                        Toast.makeText(getApplication(),"Record Saved Successfully",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getApplication(),"Sorry, Try Again",Toast.LENGTH_SHORT).show();
+                    }
+                    db.close();
+                    centerRefresher();
+                }
             }
         });
         btnReset.setOnClickListener(new View.OnClickListener() {
@@ -133,7 +148,6 @@ public class ProfileActivity extends AppCompatActivity {
     private void check() {
         if (ifExists()) {
             btnSubmit.setEnabled(false);
-            btnEdit.setEnabled(true);
         }else {
 
         }
@@ -145,8 +159,8 @@ public class ProfileActivity extends AppCompatActivity {
             db.open();
             Cursor c = db.getAllRecords();
             if (c.moveToFirst()){
-                textName.setText(c.getString(0));
-                textPassword.setText(c.getString(1));
+                textName.setText(c.getString(1));
+                textPassword.setText(c.getString(2));
             }
         }else {}
     }
@@ -165,9 +179,16 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                btnEdit.setEnabled(true);
+                if (!(btnEdit.isEnabled())){
+                    btnEdit.setEnabled(true);
+                }
             }
         });
         return false;
+    }
+
+    private void centerRefresher(){
+        startActivity(new Intent(this,ProfileActivity.class));
+        finish();
     }
 }
