@@ -54,7 +54,7 @@ public class ThemesActivity extends AppCompatActivity {
 //    private void setComponents() {
 //        LinearLayout  mainLayout = (LinearLayout) findViewById(R.id.main_layout);
 //        for (int i = 0; i < themes.length; i++) {
-//            mainLayout.addView(new MyView(getApplicationContext(), themes[i], colors[i]));
+//            mainLayout.addView(animate MyView(getApplicationContext(), themes[i], colors[i]));
 //        }
 //    }
 
@@ -118,7 +118,7 @@ public class ThemesActivity extends AppCompatActivity {
 //    private void selectTheme(){
 //        View v = getLayoutInflater().inflate(R.layout.theme_listitem, null);
 //        TextView tv = (TextView) v.findViewById(R.id.textView2);
-//        adapter = new ArrayAdapter<String>(this, R.layout.theme_listitem, themes);
+//        adapter = animate ArrayAdapter<String>(this, R.layout.theme_listitem, themes);
 //       // ListView listView = (ListView) findViewById(R.id.theme_listView);
 //       // listView.setAdapter(adapter);
 //    }
@@ -141,7 +141,7 @@ public class ThemesActivity extends AppCompatActivity {
 //        }
 //
 //        private void make() {
-//            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+//            LinearLayout.LayoutParams params = animate LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 //                    LinearLayout.LayoutParams.WRAP_CONTENT);
 //            params.setMargins(0,5,0,0);
 //            setText(title);

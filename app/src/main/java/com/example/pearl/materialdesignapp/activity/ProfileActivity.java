@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     Button btnEdit;
     EditText textName;
     EditText textPassword;
+    Animation vanish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         textName = (EditText) findViewById(R.id.editTextName);
         textPassword = (EditText) findViewById(R.id.editTextPassword);
         btnEdit.setEnabled(false);
+        vanish = AnimationUtils.loadAnimation(this, R.anim.vanish);
         Singleton.getInstance().setActivityName(this.getClass().getName());
         FileHandler.getsInstance().writeCache(this);
         FileHandler.getsInstance().readCache(this);
@@ -59,6 +64,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void goBack(){
         btn = (FloatingActionButton) findViewById(R.id.back_button);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn.setAnimation(vanish);
+            }
+        }, 500);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

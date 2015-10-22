@@ -57,7 +57,6 @@ public class ThemesAdapter extends ArrayAdapter {
             viewHolder = new ViewHolder();
             viewHolder.title = (TextView) row.findViewById(R.id.textView2);
             viewHolder.color = (TextView) row.findViewById(R.id.textView1);
-            viewHolder.color.setBackgroundColor(Color.parseColor(ThemesActivity.activity.getColors(position)));
             row.setTag(viewHolder);
         }
         else {
@@ -66,6 +65,7 @@ public class ThemesAdapter extends ArrayAdapter {
 
         String t = getItem(position).toString();
         viewHolder.title.setText(t);
+        viewHolder.color.setBackgroundColor(Color.parseColor(ThemesActivity.activity.getColors(position)));
         //viewHolder.color.setText(t);
         return row;
     }

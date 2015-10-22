@@ -51,10 +51,13 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
                         MainActivity.activity.homeScreen();
                     } else if (v == parent.getChildAt(2)) {
                         MainActivity.activity.closeDrawer();
+                        MainActivity.activity.launchEmailActivity();
                     } else if (v == parent.getChildAt(3)){
                         MainActivity.activity.launchThemeActivity();
                     } else if (v == parent.getChildAt(4)){
                         MainActivity.activity.launchProfileActivity();
+                    }else if (v == parent.getChildAt(5)){
+                        MainActivity.activity.launchMapActivity();
                     }
                 }
             });
